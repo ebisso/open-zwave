@@ -106,6 +106,19 @@ Version 1.5
  - Pull Request #980 - Update manufacturer_specific.xml from bailz (Nechry)
  - Add GR GR105 Auto Valve config file (Nechry)
  - Add NodOn MSP-3-1-XX Micro Smart Plug from sarakha63 (Nechry)
+ - Add Zipato PH-PAB01.eu Micromodule Energy Meter (Nechry)
+ - Add Zipato MH-P210 Mini Energy Dimmer, Mcohome branded (Nechry)
+ - Add WiDom WDS Universal Double Switch (Nechry)
+ - Add FortrezZ WV-01 Automated Water Shut-Off Valve (Nechry)
+ - Pull Request #992 - Devolo Metering Plug and Permundo Plugs from tobiasgraf (Nechry)
+ - Add configuration file for First Alert ZCombo Smoke and Carbon Monoxide Detector (Nechry)
+ - Issue #998 - Add Zooz ZEN07 Mini Plug from DeviantEng (Nechry)
+ - Issue #999 - Add new id in Fibaro fgd212.xml from DeviantEng (Nechry)
+ - Issue #1004 - Add support config for Neo Coolcam NAS-WS02Z water leakage sensor from nmaster2042 (Nechry)
+ - Add BeNext Panic Watch (Nechry)
+ - Pull Request #1006 Unknown: id=0176 Unknown: type=0005, id=0001 (Telldus TZDW-100 Magnet Switch) from ic3cool (Nechry)
+ - Pull Request #1007 Fibaro_FGK10x from tobiasgraf (Nechry)
+ - Pull Request #1008 Devolo devices from tobiasgraf (Nechry)
 
 Version 1.4
  - Released 10th Jan, 2016
