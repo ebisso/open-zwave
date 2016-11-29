@@ -75,7 +75,10 @@ DISTFILES =	.gitignore \
 	config/aeotec/zw121.xml \
 	config/aeotec/zw130.xml \
 	config/assa_abloy/KeyfreeConnected.xml \
-	config/assa_abloy/RealLivingCapTouch.xml \
+	config/assa_abloy/PushButtonDeadbolt.xml \
+	config/assa_abloy/PushButtonLever.xml \
+	config/assa_abloy/TouchDeadbolt.xml \
+	config/assa_abloy/TouchLever.xml \
 	config/cooper/RF9505-T.xml \
 	config/cooper/RF9540-N.xml \
 	config/danfoss/living.xml \
@@ -97,6 +100,7 @@ DISTFILES =	.gitignore \
 	config/duwi/ZWES1000.xml \
 	config/duwi/ZWESJ300.xml \
 	config/duwi/zwfb.xml \
+	config/ecolink/sensor.xml \
 	config/electronicsolutions/dbmz.xml \
 	config/enerwave/zw15s.xml \
 	config/enerwave/zw20r.xml \
@@ -141,7 +145,6 @@ DISTFILES =	.gitignore \
 	config/fibaro/fgms.xml \
 	config/fibaro/fgpb101.xml \
 	config/fibaro/fgr221.xml \
-	config/fibaro/fgr222.xml \
 	config/fibaro/fgrgbwm441.xml \
 	config/fibaro/fgrm222.xml \
 	config/fibaro/fgs211.xml \
@@ -181,8 +184,10 @@ DISTFILES =	.gitignore \
 	config/horstmann/ses303.xml \
 	config/horstmann/sir321.xml \
 	config/horstmann/srt323.xml \
+	config/idlock/idlock101.xml \
 	config/intermatic/ca8900.xml \
 	config/iris/rangeextender.xml \
+	config/kaipule/im20.xml \
 	config/kwikset/smartcode.xml \
 	config/leviton/rzi10.xml \
 	config/leviton/vrcpg.xml \
@@ -231,6 +236,7 @@ DISTFILES =	.gitignore \
 	config/polycontrol/polylock.xml \
 	config/popp/009105.xml \
 	config/popp/009303.xml \
+	config/popp/012501.xml \
 	config/popp/123580.xml \
 	config/popp/123601.xml \
 	config/popp/123658.xml \
@@ -248,7 +254,8 @@ DISTFILES =	.gitignore \
 	config/qubino/ZMNHDA2.xml \
 	config/qubino/ZMNHDDx.xml \
 	config/qubino/ZMNHIA2.xml \
-	config/qubino/ZMNHIDx.xml \
+	config/qubino/ZMNHIDxS1.xml \
+	config/qubino/ZMNHIDxS2.xml \
 	config/qubino/ZMNHJA2.xml \
 	config/qubino/ZMNHJD1.xml \
 	config/qubino/ZMNHLAx.xml \
@@ -286,6 +293,7 @@ DISTFILES =	.gitignore \
 	config/trane/TZEMT400BB32MAA.xml \
 	config/vision/zd2102.xml \
 	config/vision/zd2201.xml \
+	config/vision/zd2301.xml \
 	config/vision/zg8101.xml \
 	config/vision/zm1601eu.xml \
 	config/vision/zm1601eu5.xml \
@@ -310,7 +318,10 @@ DISTFILES =	.gitignore \
 	config/widom/WDS.xml \
 	config/zipato/MiniKeypad.xml \
 	config/zipato/RGBBulb.xml \
+	config/zipato/vszd2102.xml \
 	config/zooz/zen07.xml \
+	config/zooz/zse08.xml \
+	config/zooz/zse09.xml \
 	config/zwave.me/ZME_05431.xml \
 	config/zwave.me/ZME_06433.xml \
 	config/zwave.me/ZME_06436.xml \
