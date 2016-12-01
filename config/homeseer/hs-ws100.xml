@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Product xmlns='http://code.google.com/p/open-zwave/'>
+	<!-- Configuration Parameters -->
+	<CommandClass id="112">
+		<Value type="byte" index="4" genre="config" label="Orientation" units="" min="0" max="1" value="0">
+		  <Help>
+		     The orientation of the ON/OFF on the rocker switch can be inverted by changing the configuration item from 0 to 1
+		  </Help>
+		</Value>		
+	</CommandClass>
+	<!-- Association Groups -->
+	<CommandClass id="133">
+		<Associations num_groups="1">
+        		<Group index="1" max_associations="5" label="Group #1 for lifeline communications. Max associations=5.  Lifeline association only supports the manual reset event." />
+		</Associations>
+	</CommandClass>
+	<CommandClass id="91" action="add" scenecount="2" />
+</Product>
