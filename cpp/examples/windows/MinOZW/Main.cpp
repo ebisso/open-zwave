@@ -221,6 +221,15 @@ void OnNotification
 			break;
 		}
 
+        case Notification::Type_CentralSceneEvent:
+        {
+            if (NodeInfo* nodeInfo = GetNodeInfo(_notification))
+            {
+                nodeInfo = nodeInfo;		// placeholder for real action
+            }
+            break;
+        }
+
 		case Notification::Type_DriverReset:
 		case Notification::Type_NodeNaming:
 		case Notification::Type_NodeProtocolInfo:

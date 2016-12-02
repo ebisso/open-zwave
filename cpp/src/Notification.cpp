@@ -226,6 +226,9 @@ string Notification::GetAsString() const {
 			case Type_NodeReset:
 				str = "Node Reset";
 				break;
+            case Type_CentralSceneEvent:
+                str = "CentralScene Event";
+                break;
 	}
 	return str;
 

@@ -75,6 +75,7 @@ namespace OpenZWave
 		friend class WakeUp;
 		friend class Security;
 		friend class Msg;
+        friend class CentralScene;
 
 	//-----------------------------------------------------------------------------
 	//	Controller Interfaces

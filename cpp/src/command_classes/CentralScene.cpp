@@ -31,6 +31,7 @@
 #include "Msg.h"
 #include "Node.h"
 #include "Driver.h"
+#include "Notification.h"
 #include "platform/Log.h"
 #include "value_classes/ValueInt.h"
 #include "value_classes/ValueButton.h"
@@ -51,9 +52,9 @@ enum CentralSceneCmd
 enum CentralScene_ValueID_Index
 {
     CentralSceneIndex_SceneCount                         = 0x00,
-    CentralSceneIndex_Scene_KeyAttribute                 = 0x01,
-    CentralSceneIndex_SceneID                            = 0x02,
-    CentralSceneIndex_Button                             = 0x03,
+    //CentralSceneIndex_Scene_KeyAttribute                 = 0x01,
+    //CentralSceneIndex_SceneID                            = 0x02,
+    //CentralSceneIndex_Button                             = 0x03,
     CentralSceneIndex_Scenes_Identical                   = 0x04,
     CentralSceneIndex_Supported_KeyAttributes_All_Scenes = 0x05,
     CentralSceneIndex_Supported_KeyAttributes_Scene_1    = 0x06,
@@ -212,44 +213,11 @@ bool CentralScene::HandleMsg
 		uint8 sceneID = _data[3];
 		Log::Write( LogLevel_Info, GetNodeId(), "Received Central Scene set from node %d: scene id=%d with key Attribute %d. Sending event notification.", GetNodeId(), sceneID, keyAttribute);
 
-		if( ValueList* value = static_cast<ValueList*>( GetValue( _instance, CentralSceneIndex_Scene_KeyAttribute ) ) )
-		{
-			value->OnValueRefreshed( keyAttribute );
-			value->Release();
-		} else {
-			Log::Write( LogLevel_Warning, GetNodeId(), "No ValueID created for Scene Keyattribute");
-			return false;
-		}
-        if( ValueByte* value = static_cast<ValueByte*>( GetValue( _instance, CentralSceneIndex_SceneID ) ) )
-        {
-            value->OnValueRefreshed( sceneID );
-            value->Release();
-        } else {
-            Log::Write( LogLevel_Warning, GetNodeId(), "No ValueID created for Scene ID");
-            return false;
-        }
-        if ( keyAttribute == CentralScene_KeyAttributes_KeyHeldDown )
-        {
-            if( ValueButton* value = static_cast<ValueButton*>( GetValue( _instance, CentralSceneIndex_Button ) ) )
-            {
-                value->PressButton();
-                value->Release();
-            } else {
-                Log::Write( LogLevel_Warning, GetNodeId(), "No ValueID created for Scene Button");
-                return false;
-            }
-        }
-        else if ( keyAttribute == CentralScene_KeyAttributes_KeyReleased )
-        {
-            if( ValueButton* value = static_cast<ValueButton*>( GetValue( _instance, CentralSceneIndex_Button ) ) )
-            {
-                value->ReleaseButton();
-                value->Release();
-            } else {
-                Log::Write( LogLevel_Warning, GetNodeId(), "No ValueID created for Scene Button");
-                return false;
-            }
-        }
+        Notification* notification = new Notification(Notification::Type_CentralSceneEvent);
+        notification->SetHomeAndNodeIds(GetHomeId(), GetNodeId());
+        notification->SetSceneId(sceneID);
+        notification->SetEvent(keyAttribute);
+        GetDriver()->QueueNotification(notification);
 		return true;
 	}
 	else if (CentralSceneCmd_Capability_Report == (CentralSceneCmd)_data[0])
@@ -337,20 +305,6 @@ void CentralScene::CreateVars
 	if( Node* node = GetNodeUnsafe() )
 	{
 		node->CreateValueInt( ValueID::ValueGenre_User, GetCommandClassId(), _instance, CentralSceneIndex_SceneCount, "Scene Count", "", true, false, 0, 0 );
-
-        vector<ValueList::Item> items;
-        unsigned int size = (sizeof(c_CentralScene_KeyAttributes)/sizeof(c_CentralScene_KeyAttributes[0]));
-        for( unsigned int i=0; i < size; i++)
-        {
-            ValueList::Item item;
-            item.m_label = c_CentralScene_KeyAttributes[i];
-            item.m_value = i;
-            items.push_back( item );
-        }
-        node->CreateValueList( ValueID::ValueGenre_User, GetCommandClassId(), _instance, CentralSceneIndex_Scene_KeyAttribute, "Scene KeyAttribute", "", false, false, size, items, 0, 0 );
-
-        node->CreateValueByte( ValueID::ValueGenre_User, GetCommandClassId(), _instance, CentralSceneIndex_SceneID, "Scene ID", "", true, false, 0, 0 );
-        node->CreateValueButton(ValueID::ValueGenre_User, GetCommandClassId(), _instance, CentralSceneIndex_Button, "Button", 0 );
         node->CreateValueByte( ValueID::ValueGenre_User, GetCommandClassId(), _instance, CentralSceneIndex_Scenes_Identical, "Scenes Identical", "", true, false, 0, 0 );
 	}
 }
